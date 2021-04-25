@@ -15,6 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Volke Bits
  * Plugin URI:        https://github.com/silentFred/volke-wp-bits
+ * GitHub Plugin URI: https://github.com/silentFred/volke-wp-bits
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
  * Author:            Frederick van Staden
