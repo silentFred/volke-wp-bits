@@ -23,19 +23,26 @@ function colour_swatches_shortcode($atts)
         $term = get_term($colour_taxonomy);
         $term_attachment = get_term_meta($term->term_id, 'product_attribute_image', true);
         $image = wp_get_attachment_image_src($term_attachment, 'medium')[0];
+        $link = "/shop/?filter_colours=$term->slug";
 
         $html .= "
-        <div style='display: flex'>
-            <div style='flex: 1'>
-                <img src='$image' alt='$term->name'/>
+        <p>
+            <div style='display: flex'>
+                <div style='flex: 1'>
+                    <a href='$link'>
+                        <img style='padding: 10px' src='$image' alt='$term->name'/>
+                    </a>
+                </div>
+                
+                <div style='flex: 3'>
+                    <div style='padding: 10px'>
+                        <h3>$term->name</h3>
+                        <p>$term->description</p>
+                        <a href='$link'>View all $term->name products</a>
+                    </div>
+                </div>
             </div>
-            
-            <div style='flex: 3'>
-                <h2>$term->name</h2>
-                <p>$term->description</p>
-                <a href='/?filter_colours=$term->slug&s=&post_type=product'>See all</a>
-            </div>
-        </div>";
+        </p>";
     }
 
     return $html;
